@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { products, categoryNames } from '@/data/products';
+import { chafaProducts, chafaCategoryNames } from '@/data/chafaProducts';
 import { ProductCard } from '@/components/ProductCard';
 import { CartSheet } from '@/components/CartSheet';
 import { AdminAccessDialog } from '@/components/AdminAccessDialog';
@@ -9,12 +9,11 @@ import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
-import { ShoppingBag, LayoutDashboard, Search, User, LogOut, History } from 'lucide-react';
+import { ShoppingBag, LayoutDashboard, Search, User, LogOut, History, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
 import { Product } from '@/types/product';
 import { generateOrderId } from '@/utils/orderUtils';
-import voyageCafeLogo from '@/assets/Voyage Logo.png';
 import {
   Sheet,
   SheetContent,
@@ -22,7 +21,7 @@ import {
   SheetTitle
 } from '@/components/ui/sheet';
 
-const Menu = () => {
+const ChafaMenu = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [adminDialogOpen, setAdminDialogOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,7 +43,7 @@ const Menu = () => {
         description: "Please sign in or create an account to keep track of your orders.",
         variant: "destructive",
       });
-      navigate('/voyage/login');
+      navigate('/chafa/login');
       return false;
     }
     return true;
@@ -85,30 +84,29 @@ const Menu = () => {
       duration: 5000,
     });
     
-    navigate(`/voyage/order/${order.id}`);
+    navigate(`/chafa/order/${order.id}`);
   };
 
   const handleAdminAccess = () => {
     const hasAccess = localStorage.getItem('admin_access') === 'true';
     if (hasAccess) {
-      navigate('/voyage/admin');
+      navigate('/chafa/admin');
     } else {
       setAdminDialogOpen(true);
     }
   };
 
   const handleAdminSuccess = () => {
-    navigate('/admin');
+    navigate('/chafa/admin');
   };
 
-  const categories = Object.entries(categoryNames).map(([value, label]) => ({
+  const categories = Object.entries(chafaCategoryNames).map(([value, label]) => ({
     value,
     label
   }));
 
   const filteredProducts = useMemo(() => {
-    return products.filter(product => {
-      // Don't show add-on products in the main list
+    return chafaProducts.filter(product => {
       if (product.isAddOn) return false;
       
       const searchLower = searchQuery.toLowerCase();
@@ -126,7 +124,6 @@ const Menu = () => {
     });
   }, [searchQuery, selectedCategory, dietFilter]);
 
-  // Group products by category when no specific category is selected
   const groupedProducts = useMemo(() => {
     if (selectedCategory !== '') {
       return { [selectedCategory]: filteredProducts };
@@ -140,7 +137,6 @@ const Menu = () => {
       groups[product.category].push(product);
     });
     
-    // Order categories according to categoryNames order
     const orderedGroups: Record<string, typeof filteredProducts> = {};
     categories.forEach(({ value }) => {
       if (groups[value] && groups[value].length > 0) {
@@ -158,15 +154,20 @@ const Menu = () => {
         <div className="w-full px-6 py-4">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4 flex-shrink-0">
-              <img 
-                src={voyageCafeLogo} 
-                alt="The Voyage Cafe Logo" 
-                className="h-16 w-16 object-contain cursor-pointer"
-                onClick={() => navigate('/voyage/menu')}
-              />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate('/')}
+                className="h-9 w-9"
+              >
+                <ArrowLeft className="h-5 w-5" />
+              </Button>
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                <span className="text-2xl font-bold text-white">C</span>
+              </div>
               <div className="flex flex-col justify-center">
-                <h1 className="text-base font-bold leading-tight" style={{ color: 'hsl(225, 75%, 22%)' }}>The Voyage Cafe</h1>
-                <p className="text-xs text-muted-foreground mt-0.5">The Voyage Cafe - Koregaon Park</p>
+                <h1 className="text-base font-bold leading-tight text-amber-700">Chafa Cafe And Studio</h1>
+                <p className="text-xs text-muted-foreground mt-0.5">Café & Creative Studio</p>
               </div>
             </div>
 
@@ -213,7 +214,7 @@ const Menu = () => {
                 {isAuthenticated ? (
                   <>
                     <Button 
-                      onClick={() => navigate('/order-history')}
+                      onClick={() => navigate('/chafa/order-history')}
                       variant="ghost"
                       size="icon"
                       className="h-9 w-9 text-muted-foreground hover:text-primary"
@@ -239,7 +240,7 @@ const Menu = () => {
                   </>
                 ) : (
                   <Button 
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/chafa/login')}
                     variant="ghost"
                     size="icon"
                     className="h-9 w-9 text-muted-foreground hover:text-primary"
@@ -262,7 +263,7 @@ const Menu = () => {
               <Button 
                 onClick={() => setCartOpen(true)}
                 size="default"
-                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow"
+                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow bg-amber-600 hover:bg-amber-700"
               >
                 <ShoppingBag className="h-5 w-5" />
                 {itemCount > 0 && (
@@ -301,7 +302,7 @@ const Menu = () => {
                 {isAuthenticated ? (
                   <>
                     <Button 
-                      onClick={() => navigate('/order-history')}
+                      onClick={() => navigate('/chafa/order-history')}
                       variant="ghost"
                       size="icon"
                       className="h-9 w-9 text-muted-foreground hover:text-primary"
@@ -327,7 +328,7 @@ const Menu = () => {
                   </>
                 ) : (
                   <Button 
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/chafa/login')}
                     variant="ghost"
                     size="icon"
                     className="h-9 w-9 text-muted-foreground hover:text-primary"
@@ -340,7 +341,7 @@ const Menu = () => {
               <Button 
                 onClick={() => setCartOpen(true)}
                 size="default"
-                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow flex-1 justify-center"
+                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow flex-1 justify-center bg-amber-600 hover:bg-amber-700"
               >
                 <ShoppingBag className="h-5 w-5" />
                 {itemCount > 0 && (
@@ -366,12 +367,12 @@ const Menu = () => {
                 onClick={() => setSelectedCategory('')}
                 className={`w-full text-left px-3 py-2.5 text-sm rounded-lg relative ${
                   selectedCategory === ''
-                    ? 'text-foreground font-medium !bg-primary/10'
+                    ? 'text-foreground font-medium !bg-amber-100'
                     : 'text-muted-foreground !bg-transparent'
                 }`}
               >
                 {selectedCategory === '' && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-primary rounded-r" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-amber-600 rounded-r" />
                 )}
                 All Categories
               </button>
@@ -381,12 +382,12 @@ const Menu = () => {
                   onClick={() => setSelectedCategory(category.value)}
                   className={`w-full text-left px-3 py-2.5 text-sm rounded-lg relative ${
                     selectedCategory === category.value
-                      ? 'text-foreground font-medium !bg-primary/10'
+                      ? 'text-foreground font-medium !bg-amber-100'
                       : 'text-muted-foreground !bg-transparent'
                   }`}
                 >
                   {selectedCategory === category.value && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-primary rounded-r" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-amber-600 rounded-r" />
                   )}
                   {category.label}
                 </button>
@@ -412,12 +413,10 @@ const Menu = () => {
               <div className="space-y-6">
                 {Object.entries(groupedProducts).map(([categoryId, categoryProducts]) => (
                   <div key={categoryId} className="space-y-3">
-                    {/* Category Section Title */}
                     <h2 className="text-xl font-bold text-foreground">
-                      {categoryNames[categoryId as keyof typeof categoryNames] || categoryId}
+                      {chafaCategoryNames[categoryId as keyof typeof chafaCategoryNames] || categoryId}
                     </h2>
                     
-                    {/* Products Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                       {categoryProducts.map((product) => (
                         <ProductCard
@@ -445,7 +444,7 @@ const Menu = () => {
       {/* Floating menu for mobile */}
       <div className="lg:hidden fixed bottom-6 right-4 z-30">
         <Button
-          className="rounded-full h-16 w-16 shadow-2xl flex items-center justify-center text-xs font-semibold tracking-wide"
+          className="rounded-full h-16 w-16 shadow-2xl flex items-center justify-center text-xs font-semibold tracking-wide bg-amber-600 hover:bg-amber-700"
           onClick={() => setCategorySheetOpen(true)}
         >
           Menu
@@ -464,7 +463,7 @@ const Menu = () => {
                 setCategorySheetOpen(false);
               }}
               className={`w-full text-left px-4 py-3 rounded-xl border ${
-                selectedCategory === '' ? 'border-primary text-primary font-semibold' : 'border-border text-foreground'
+                selectedCategory === '' ? 'border-amber-600 text-amber-700 font-semibold' : 'border-border text-foreground'
               }`}
             >
               All Categories
@@ -477,7 +476,7 @@ const Menu = () => {
                   setCategorySheetOpen(false);
                 }}
                 className={`w-full text-left px-4 py-3 rounded-xl border ${
-                  selectedCategory === category.value ? 'border-primary text-primary font-semibold' : 'border-border text-foreground'
+                  selectedCategory === category.value ? 'border-amber-600 text-amber-700 font-semibold' : 'border-border text-foreground'
                 }`}
               >
                 {category.label}
@@ -490,4 +489,5 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default ChafaMenu;
+
