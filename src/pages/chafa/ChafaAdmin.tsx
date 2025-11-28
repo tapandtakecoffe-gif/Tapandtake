@@ -106,7 +106,7 @@ const ChafaAdmin = () => {
               <CardTitle className="text-sm font-medium text-muted-foreground">Total Revenue</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-primary">₹{totalRevenue.toFixed(2)}</div>
+              <div className="text-2xl font-bold text-green-700">₹{totalRevenue.toFixed(2)}</div>
             </CardContent>
           </Card>
           <Card>
@@ -202,21 +202,21 @@ const ChafaAdmin = () => {
                     <Separator />
                     <div className="flex justify-between items-center font-bold">
                       <span>Total</span>
-                      <span className="text-primary">₹{order.total.toFixed(2)}</span>
+                      <span className="text-green-700">₹{order.total.toFixed(2)}</span>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       {order.status === 'pending' && (
-                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'preparing')}>
+                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'preparing')} className="bg-green-600 hover:bg-green-700 text-white">
                           Start Preparing
                         </Button>
                       )}
                       {order.status === 'preparing' && (
-                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'ready')}>
+                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'ready')} className="bg-green-600 hover:bg-green-700 text-white">
                           Mark Ready
                         </Button>
                       )}
                       {order.status === 'ready' && (
-                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'completed')}>
+                        <Button size="sm" onClick={() => handleStatusChange(order.id, 'completed')} className="bg-green-600 hover:bg-green-700 text-white">
                           Complete
                         </Button>
                       )}

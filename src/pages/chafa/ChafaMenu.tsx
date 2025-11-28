@@ -221,7 +221,7 @@ const ChafaMenu = () => {
                       onClick={() => navigate('/chafa/order-history')}
                       variant="ghost"
                       size="icon"
-                      className="h-9 w-9 text-muted-foreground hover:text-primary"
+                      className="h-9 w-9 text-muted-foreground hover:text-green-600"
                       title="Order history"
                     >
                       <History className="h-5 w-5" />
@@ -236,7 +236,7 @@ const ChafaMenu = () => {
                       }}
                       variant="ghost"
                       size="icon"
-                      className="h-9 w-9 text-muted-foreground hover:text-primary"
+                      className="h-9 w-9 text-muted-foreground hover:text-green-600"
                       title="Logout"
                     >
                       <LogOut className="h-5 w-5" />
@@ -267,7 +267,7 @@ const ChafaMenu = () => {
               <Button 
                 onClick={() => setCartOpen(true)}
                 size="default"
-                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow"
+                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow bg-green-600 hover:bg-green-700 text-white"
               >
                 <ShoppingBag className="h-5 w-5" />
                 {itemCount > 0 && (
@@ -309,7 +309,7 @@ const ChafaMenu = () => {
                       onClick={() => navigate('/chafa/order-history')}
                       variant="ghost"
                       size="icon"
-                      className="h-9 w-9 text-muted-foreground hover:text-primary"
+                      className="h-9 w-9 text-muted-foreground hover:text-green-600"
                       title="Order history"
                     >
                       <History className="h-5 w-5" />
@@ -324,7 +324,7 @@ const ChafaMenu = () => {
                       }}
                       variant="ghost"
                       size="icon"
-                      className="h-9 w-9 text-muted-foreground hover:text-primary"
+                      className="h-9 w-9 text-muted-foreground hover:text-green-600"
                       title="Logout"
                     >
                       <LogOut className="h-5 w-5" />
@@ -345,7 +345,7 @@ const ChafaMenu = () => {
               <Button 
                 onClick={() => setCartOpen(true)}
                 size="default"
-                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow flex-1 justify-center bg-amber-600 hover:bg-amber-700"
+                className="relative gap-2 h-11 px-4 shadow-lg hover:shadow-xl transition-shadow flex-1 justify-center bg-green-600 hover:bg-green-700 text-white"
               >
                 <ShoppingBag className="h-5 w-5" />
                 {itemCount > 0 && (
@@ -371,12 +371,12 @@ const ChafaMenu = () => {
                 onClick={() => setSelectedCategory('')}
                 className={`w-full text-left px-3 py-2.5 text-sm rounded-lg relative ${
                   selectedCategory === ''
-                    ? 'text-foreground font-medium !bg-primary/10'
+                    ? 'text-foreground font-medium !bg-green-100'
                     : 'text-muted-foreground !bg-transparent'
                 }`}
               >
                 {selectedCategory === '' && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-primary rounded-r" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-green-600 rounded-r" />
                 )}
                 All Categories
               </button>
@@ -386,12 +386,12 @@ const ChafaMenu = () => {
                   onClick={() => setSelectedCategory(category.value)}
                   className={`w-full text-left px-3 py-2.5 text-sm rounded-lg relative ${
                     selectedCategory === category.value
-                      ? 'text-foreground font-medium !bg-primary/10'
+                      ? 'text-foreground font-medium !bg-green-100'
                       : 'text-muted-foreground !bg-transparent'
                   }`}
                 >
                   {selectedCategory === category.value && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-primary rounded-r" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-green-600 rounded-r" />
                   )}
                   {category.label}
                 </button>
@@ -448,7 +448,7 @@ const ChafaMenu = () => {
       {/* Floating menu for mobile */}
       <div className="lg:hidden fixed bottom-6 right-4 z-30">
         <Button
-          className="rounded-full h-16 w-16 shadow-2xl flex items-center justify-center text-xs font-semibold tracking-wide"
+          className="rounded-full h-16 w-16 shadow-2xl flex items-center justify-center text-xs font-semibold tracking-wide bg-green-600 hover:bg-green-700 text-white"
           onClick={() => setCategorySheetOpen(true)}
         >
           Menu
@@ -467,7 +467,7 @@ const ChafaMenu = () => {
                 setCategorySheetOpen(false);
               }}
                 className={`w-full text-left px-4 py-3 rounded-xl border ${
-                selectedCategory === '' ? 'border-primary text-primary font-semibold' : 'border-border text-foreground'
+                selectedCategory === '' ? 'border-green-600 text-green-700 font-semibold' : 'border-border text-foreground'
               }`}
             >
               All Categories
@@ -480,7 +480,7 @@ const ChafaMenu = () => {
                   setCategorySheetOpen(false);
                 }}
                 className={`w-full text-left px-4 py-3 rounded-xl border ${
-                  selectedCategory === category.value ? 'border-primary text-primary font-semibold' : 'border-border text-foreground'
+                  selectedCategory === category.value ? 'border-green-600 text-green-700 font-semibold' : 'border-border text-foreground'
                 }`}
               >
                 {category.label}

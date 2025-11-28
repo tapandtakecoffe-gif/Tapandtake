@@ -53,7 +53,7 @@ const ChafaOrderHistory = () => {
           <Card>
             <CardContent className="pt-6 text-center">
               <p className="text-muted-foreground mb-4">No orders yet</p>
-              <Button onClick={() => navigate('/chafa/menu')}>Browse Menu</Button>
+              <Button onClick={() => navigate('/chafa/menu')} className="bg-green-600 hover:bg-green-700 text-white">Browse Menu</Button>
             </CardContent>
           </Card>
         ) : (
@@ -87,7 +87,7 @@ const ChafaOrderHistory = () => {
                   <Separator className="my-3" />
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Total</span>
-                    <span className="text-lg font-bold text-primary">₹{order.total.toFixed(2)}</span>
+                    <span className="text-lg font-bold text-green-700">₹{order.total.toFixed(2)}</span>
                   </div>
                   {order.estimatedPickupTime && !['completed', 'cancelled', 'ready'].includes(order.status) && (
                     <div className="mt-4 pt-4 border-t">

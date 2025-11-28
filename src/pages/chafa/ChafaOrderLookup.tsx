@@ -68,7 +68,7 @@ const ChafaOrderLookup = () => {
           </div>
           <Button 
             onClick={handleSearch} 
-            className="w-full"
+            className="w-full bg-green-600 hover:bg-green-700 text-white"
           >
             <Search className="h-4 w-4 mr-2" />
             Track Order

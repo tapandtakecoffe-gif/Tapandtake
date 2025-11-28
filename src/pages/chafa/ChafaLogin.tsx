@@ -182,7 +182,7 @@ const ChafaLogin = () => {
                   </label>
                   <button
                     type="button"
-                    className="text-primary hover:underline"
+                    className="text-green-600 hover:underline"
                     onClick={() =>
                       toast({
                         title: "Forgot password?",
@@ -193,7 +193,7 @@ const ChafaLogin = () => {
                     Forgot password?
                   </button>
                 </div>
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white" disabled={isLoading}>
                   {isLoading ? 'Logging in...' : 'Login'}
                 </Button>
               </form>
@@ -237,7 +237,7 @@ const ChafaLogin = () => {
                     disabled={isLoading}
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white" disabled={isLoading}>
                   {isLoading ? 'Creating account...' : 'Create Account'}
                 </Button>
               </form>

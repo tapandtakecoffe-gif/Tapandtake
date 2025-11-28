@@ -200,10 +200,10 @@ const ChafaOrderStatus = () => {
 
             <div className="flex justify-between items-center text-xl font-bold">
               <span>Total</span>
-              <span className="text-primary">₹{order.total.toFixed(2)}</span>
+              <span className="text-green-700">₹{order.total.toFixed(2)}</span>
             </div>
 
-            <Button onClick={() => navigate('/chafa/menu')} variant="outline" className="w-full">
+            <Button onClick={() => navigate('/chafa/menu')} className="w-full bg-green-600 hover:bg-green-700 text-white">
               Back to Menu
             </Button>
           </CardContent>
