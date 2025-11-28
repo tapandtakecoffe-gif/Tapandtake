@@ -90,7 +90,7 @@ const ChafaAdmin = () => {
             <Button variant="ghost" size="icon" onClick={() => navigate('/chafa/menu')}>
               <ArrowLeft className="h-6 w-6" />
             </Button>
-            <h1 className="text-2xl font-bold tracking-tight text-amber-700">Chafa Cafe Admin</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Chafa Cafe Admin</h1>
           </div>
           <Button variant="destructive" onClick={handleClearAll}>
             Clear All Orders
@@ -106,7 +106,7 @@ const ChafaAdmin = () => {
               <CardTitle className="text-sm font-medium text-muted-foreground">Total Revenue</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-amber-700">₹{totalRevenue.toFixed(2)}</div>
+              <div className="text-2xl font-bold text-primary">₹{totalRevenue.toFixed(2)}</div>
             </CardContent>
           </Card>
           <Card>
@@ -202,7 +202,7 @@ const ChafaAdmin = () => {
                     <Separator />
                     <div className="flex justify-between items-center font-bold">
                       <span>Total</span>
-                      <span className="text-amber-700">₹{order.total.toFixed(2)}</span>
+                      <span className="text-primary">₹{order.total.toFixed(2)}</span>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       {order.status === 'pending' && (

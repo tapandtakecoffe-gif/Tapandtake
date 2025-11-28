@@ -104,7 +104,7 @@ const ChafaOrderStatus = () => {
             <Button variant="ghost" size="icon" onClick={() => navigate('/chafa/menu')}>
               <ArrowLeft className="h-6 w-6" />
             </Button>
-            <h1 className="text-2xl font-bold tracking-tight text-amber-700">Your Order</h1>
+            <h1 className="text-2xl font-bold tracking-tight">Your Order</h1>
           </div>
           <div className="flex items-center gap-2">
             <Button 
@@ -200,7 +200,7 @@ const ChafaOrderStatus = () => {
 
             <div className="flex justify-between items-center text-xl font-bold">
               <span>Total</span>
-              <span className="text-amber-700">₹{order.total.toFixed(2)}</span>
+              <span className="text-primary">₹{order.total.toFixed(2)}</span>
             </div>
 
             <Button onClick={() => navigate('/chafa/menu')} variant="outline" className="w-full">

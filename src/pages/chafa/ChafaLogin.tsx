@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LogIn, UserPlus, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import chafaCafeLogo from '@/assets/Logo Chafa Cafe.png';
 
 const ChafaLogin = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -119,11 +120,13 @@ const ChafaLogin = () => {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex justify-center mb-2">
-            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">C</span>
-            </div>
+            <img 
+              src={chafaCafeLogo} 
+              alt="Chafa Cafe And Studio Logo" 
+              className="h-24 md:h-28 object-contain"
+            />
           </div>
-          <CardTitle className="text-2xl text-amber-700">Chafa Cafe And Studio</CardTitle>
+          <CardTitle className="text-2xl">Chafa Cafe And Studio</CardTitle>
           <CardDescription>
             Sign in to view your order history
           </CardDescription>
@@ -190,7 +193,7 @@ const ChafaLogin = () => {
                     Forgot password?
                   </button>
                 </div>
-                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700" disabled={isLoading}>
+                <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading ? 'Logging in...' : 'Login'}
                 </Button>
               </form>
@@ -234,7 +237,7 @@ const ChafaLogin = () => {
                     disabled={isLoading}
                   />
                 </div>
-                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700" disabled={isLoading}>
+                <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading ? 'Creating account...' : 'Create Account'}
                 </Button>
               </form>

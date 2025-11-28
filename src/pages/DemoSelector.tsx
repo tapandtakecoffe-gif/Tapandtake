@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Coffee, Store } from 'lucide-react';
 import voyageCafeLogo from '@/assets/Voyage Logo.png';
+import chafaCafeLogo from '@/assets/Logo Chafa Cafe.png';
 
 const DemoSelector = () => {
   const navigate = useNavigate();
@@ -50,9 +51,11 @@ const DemoSelector = () => {
           <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
             <CardHeader>
               <div className="flex items-center gap-4 mb-4">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                  <Store className="h-8 w-8 text-white" />
-                </div>
+                <img 
+                  src={chafaCafeLogo} 
+                  alt="Chafa Cafe And Studio Logo" 
+                  className="h-16 w-16 object-contain"
+                />
                 <div>
                   <CardTitle className="text-2xl">Chafa Cafe And Studio</CardTitle>
                   <CardDescription>Demo Especializada</CardDescription>

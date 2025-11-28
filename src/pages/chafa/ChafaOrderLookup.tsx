@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Search, ArrowLeft } from 'lucide-react';
 import { useOrders } from '@/hooks/useOrders';
+import chafaCafeLogo from '@/assets/Logo Chafa Cafe.png';
 
 const ChafaOrderLookup = () => {
   const [orderId, setOrderId] = useState('');
@@ -43,11 +44,13 @@ const ChafaOrderLookup = () => {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div className="flex justify-center mb-2">
-            <div className="h-16 w-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-              <span className="text-2xl font-bold text-white">C</span>
-            </div>
+            <img 
+              src={chafaCafeLogo} 
+              alt="Chafa Cafe And Studio Logo" 
+              className="h-16 w-16 object-contain"
+            />
           </div>
-          <CardTitle className="text-2xl mb-2 text-amber-700">Track Your Order</CardTitle>
+          <CardTitle className="text-2xl mb-2">Track Your Order</CardTitle>
           <CardDescription>
             Enter your order ID to view the current status
           </CardDescription>
@@ -65,7 +68,7 @@ const ChafaOrderLookup = () => {
           </div>
           <Button 
             onClick={handleSearch} 
-            className="w-full bg-amber-600 hover:bg-amber-700"
+            className="w-full"
           >
             <Search className="h-4 w-4 mr-2" />
             Track Order
