@@ -1865,7 +1865,7 @@ export const getAddOnProducts = (addOnIds: string[]): Product[] => {
   return products.filter(p => p.isAddOn && addOnIds.includes(p.id));
 };
 
-export const categoryNames = {
+export const bohoCategoryNames = {
   'voyage-breakfast-board': 'Voyage Breakfast Board',
   'voyage-eggs': 'Voyage Eggs',
   'eggs-benedict': 'Eggs Benedict',
@@ -1893,3 +1893,5 @@ export const categoryNames = {
   'fresh-juices-coolers': 'Fresh Fruit Juices and Coolers'
 };
 
+// Export products as bohoProducts for consistency
+export { products as bohoProducts };
