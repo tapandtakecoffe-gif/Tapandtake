@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Coffee, Store } from 'lucide-react';
+import { Coffee, Store, Sparkles } from 'lucide-react';
 import voyageCafeLogo from '@/assets/Voyage Logo.png';
 import chafaCafeLogo from '@/assets/Logo Chafa Cafe.png';
+import bohoBohoLogo from '@/assets/Logo Boho Boho.png';
 
 const DemoSelector = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const DemoSelector = () => {
           <p className="text-muted-foreground">Elige la experiencia que deseas explorar</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* The Voyage Cafe */}
           <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
             <CardHeader>
@@ -77,11 +78,42 @@ const DemoSelector = () => {
               </Button>
             </CardContent>
           </Card>
+
+          {/* Boho Boho */}
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
+            <CardHeader>
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src={bohoBohoLogo} 
+                  alt="Boho Boho Logo" 
+                  className="h-16 w-16 object-contain"
+                />
+                <div>
+                  <CardTitle className="text-2xl">Boho Boho</CardTitle>
+                  <CardDescription>Demo Especializada</CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-muted-foreground">
+                Experiencia única con menú completo y ambiente acogedor. Menú especializado y ambiente relajado.
+              </p>
+              <Button 
+                onClick={() => navigate('/boho/menu')}
+                variant="outline"
+                className="w-full gap-2 group-hover:scale-105 transition-transform border-green-500 text-green-700 hover:bg-green-50"
+                size="lg"
+              >
+                <Sparkles className="h-5 w-5" />
+                Entrar a Boho Boho
+              </Button>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground">
-            Ambas demos son funcionales y no requieren autenticación para probar
+            Todas las demos son funcionales y no requieren autenticación para probar
           </p>
         </div>
       </div>

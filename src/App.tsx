@@ -16,6 +16,12 @@ import ChafaOrderStatus from "./pages/chafa/ChafaOrderStatus";
 import ChafaOrderHistory from "./pages/chafa/ChafaOrderHistory";
 import ChafaOrderLookup from "./pages/chafa/ChafaOrderLookup";
 import ChafaAdmin from "./pages/chafa/ChafaAdmin";
+import BohoMenu from "./pages/boho/BohoMenu";
+import BohoLogin from "./pages/boho/BohoLogin";
+import BohoOrderStatus from "./pages/boho/BohoOrderStatus";
+import BohoOrderHistory from "./pages/boho/BohoOrderHistory";
+import BohoOrderLookup from "./pages/boho/BohoOrderLookup";
+import BohoAdmin from "./pages/boho/BohoAdmin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +51,14 @@ const App = () => (
           <Route path="/chafa/track-order" element={<ChafaOrderLookup />} />
           <Route path="/chafa/order-history" element={<ChafaOrderHistory />} />
           <Route path="/chafa/admin" element={<ChafaAdmin />} />
+          
+          {/* Boho Boho Routes */}
+          <Route path="/boho/menu" element={<BohoMenu />} />
+          <Route path="/boho/login" element={<BohoLogin />} />
+          <Route path="/boho/order/:orderId" element={<BohoOrderStatus />} />
+          <Route path="/boho/track-order" element={<BohoOrderLookup />} />
+          <Route path="/boho/order-history" element={<BohoOrderHistory />} />
+          <Route path="/boho/admin" element={<BohoAdmin />} />
           
           {/* Legacy routes for backward compatibility */}
           <Route path="/menu" element={<Menu />} />
