@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { products as bohoProducts, categoryNames as bohoCategoryNames } from '@/data/bohoProducts';
+import { bohoProducts, bohoCategoryNames } from '@/data/bohoProducts';
 import { ProductCard } from '@/components/ProductCard';
 import { CartSheet } from '@/components/CartSheet';
 import { AdminAccessDialog } from '@/components/AdminAccessDialog';

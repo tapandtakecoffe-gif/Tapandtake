@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useOrders } from '@/hooks/useOrders';
-import { products as bohoProducts } from '@/data/bohoProducts';
+import { bohoProducts } from '@/data/bohoProducts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
